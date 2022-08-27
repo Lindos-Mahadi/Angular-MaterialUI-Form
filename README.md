@@ -4,6 +4,8 @@
 
 // 2) installed matetial
     # ng add @angular/material
+// mat-icon list for angular
+https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
