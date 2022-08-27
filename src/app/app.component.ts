@@ -16,7 +16,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AppComponent implements OnInit {
   title = 'material-crud';
 
-  displayedColumns: string[] = ['productName', 'category', 'freshness', 'price', 'comment', 'date',];
+  displayedColumns: string[] = ['productName', 'category', 'freshness', 'price', 'comment', 'date', 'operation'];
   dataSource !: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -28,12 +28,19 @@ export class AppComponent implements OnInit {
     this.getAllProducts();
   }
 
-
+  // OPEN DIALOG
   openDialog() {
     this.dialog.open(DialogComponent, {
       width: '30%'
-    });
+    })
+      .afterClosed().subscribe((val) => {
+        if (val === 'save') {
+          this.getAllProducts();
+        }
+      })
   }
+
+  // GET ALL DATA
   getAllProducts() {
     this.getApi.getProduct().subscribe((result) => {
       // console.table(result);
@@ -46,6 +53,19 @@ export class AppComponent implements OnInit {
       alert("Error! While fetching the records");
     }
   }
+
+  // SHOW MODAL FOR EDIT
+  editProduct(row: any) {
+    this.dialog.open(DialogComponent, {
+      width: '30%',
+      data: row
+    }).afterClosed().subscribe((val) => {
+      if (val === 'update') {
+        this.getAllProducts();
+      }
+    })
+  }
+  //FOR TABLE
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

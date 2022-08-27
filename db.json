@@ -15,7 +15,7 @@
       "date": "2022-08-02T18:00:00.000Z",
       "freshness": "Second Hand",
       "price": "15000",
-      "comment": "Not New",
+      "comment": "Good",
       "id": 2
     },
     {
@@ -24,8 +24,53 @@
       "date": "2022-08-03T18:00:00.000Z",
       "freshness": "Refurbished",
       "price": "1500",
-      "comment": "Very bad",
+      "comment": "Vary Bad",
       "id": 3
+    },
+    {
+      "productName": "Mobile",
+      "category": "one",
+      "date": "2022-08-18T18:00:00.000Z",
+      "freshness": "Brand New",
+      "price": "20000",
+      "comment": "Vary Bad",
+      "id": 4
+    },
+    {
+      "productName": "Mobile",
+      "category": "one",
+      "date": "2022-08-18T18:00:00.000Z",
+      "freshness": "Brand New",
+      "price": "20000",
+      "comment": "Well 12",
+      "id": 5
+    },
+    {
+      "productName": "Camara",
+      "category": "two",
+      "date": "2022-08-08T18:00:00.000Z",
+      "freshness": "Refurbished",
+      "price": "50000",
+      "comment": "Perfact",
+      "id": 6
+    },
+    {
+      "productName": "Phone",
+      "category": "two",
+      "date": "2022-08-16T18:00:00.000Z",
+      "freshness": "Second Hand",
+      "price": "500",
+      "comment": "Well condition",
+      "id": 7
+    },
+    {
+      "productName": "Crazy File",
+      "category": "one",
+      "date": "2022-08-09T18:00:00.000Z",
+      "freshness": "Brand New",
+      "price": "50000",
+      "comment": "Hello",
+      "id": 8
     }
   ],
   "comments": [

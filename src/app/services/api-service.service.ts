@@ -17,8 +17,10 @@ export class ApiServiceService {
   getProduct() {
     return this.http.get<any>("http://localhost:3000/productList/");
   }
-  //  POST DATA ACTION METHOD
 
-
+  //  PUT DATA ACTION METHOD
+  putProduct(data: any, id: number) {
+    return this.http.put<any>("http://localhost:3000/productList/" + id, data);
+  }
 
 }

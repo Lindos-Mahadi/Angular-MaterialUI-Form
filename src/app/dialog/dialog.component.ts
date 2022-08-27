@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
@@ -12,8 +12,12 @@ export class DialogComponent implements OnInit {
 
   freshNessList: string[] = ["Brand New", "Second Hand", "Refurbished"]
   productForm !: FormGroup;
+  saveButton: string = "Save";
 
-  constructor(private formBuilder: FormBuilder, private callApi: ApiServiceService, private dialogRef: MatDialogRef<DialogComponent>) { }
+  constructor(private formBuilder: FormBuilder,
+    private callApi: ApiServiceService,
+    @Inject(MAT_DIALOG_DATA) public editData: any,
+    private dialogRef: MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
@@ -25,20 +29,45 @@ export class DialogComponent implements OnInit {
       price: ['', Validators.required],
       comment: ['', Validators.required]
 
-    })
+    });
+    if (this.editData) {
+      this.saveButton = "Update";
+      this.productForm.controls['productName'].setValue(this.editData.productName);
+      this.productForm.controls['category'].setValue(this.editData.category);
+      this.productForm.controls['date'].setValue(this.editData.date);
+      this.productForm.controls['freshness'].setValue(this.editData.freshness);
+      this.productForm.controls['price'].setValue(this.editData.price);
+      this.productForm.controls['comment'].setValue(this.editData.comment);
+    }
   }
   addProduct() {
-    if (this.productForm.valid) {
-      this.callApi.postProduct(this.productForm.value).subscribe((result) => {
-        alert("Product added successfully");
+    if (!this.editData) {
+      if (this.productForm.valid) {
+        this.callApi.postProduct(this.productForm.value).subscribe((result) => {
+          alert("Product added successfully");
+          this.productForm.reset();
+          this.dialogRef.close('save');
+        })
+      }
+      error: () => {
+        alert("Error! While adding the product");
+      }
+    } else {
+      this.updateProduct()
+    }
+  }
+  updateProduct() {
+    this.callApi.putProduct(this.productForm.value, this.editData.id).subscribe({
+      next: (res) => {
+        alert("Updated data Successfully");
         this.productForm.reset();
-        this.dialogRef.close('Save');
-      })
-    }
-    error: () => {
-      alert("Error! While adding the product");
-    }
+        this.dialogRef.close('update');
+      },
+      error: () => {
+        alert("Error! While Updating the product");
+      }
 
+    });
   }
 
 }
