@@ -10,6 +10,10 @@ https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
 // 3) Added JSON Server
 https://github.com/typicode/json-server
 
+// 3)Installed 
+ ng add @ng-bootstrap/ng-bootstrap
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
 ## Development server
