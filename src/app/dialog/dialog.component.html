@@ -2,61 +2,62 @@
 
 <div mat-dialog-content>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Product Name</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
+    <form [formGroup]="productForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input formControlName="productName" matInput placeholder="Product Name">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
 
-    <!-- DROPDOWN CATEGORY -->
-    <mat-form-field appearance="outline">
-        <mat-label>Category</mat-label>
-        <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-            <mat-option value="three">Three option</mat-option>
-        </mat-select>
-    </mat-form-field>
+        <!-- DROPDOWN CATEGORY -->
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+                <mat-option value="three">Three option</mat-option>
+            </mat-select>
+        </mat-form-field>
 
+        <!-- CHOOSE DATE -->
+        <mat-form-field appearance="outline">
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <hr>
 
-    <!-- CHOOSE DATE -->
-    <mat-form-field appearance="outline">
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <hr>
+        <!-- PRODUCT FRESHNESS -->
+        <label for="">
+            <h2>Pick your favorite Item</h2>
+        </label>
 
-    <!-- PRODUCT FRESHNESS -->
-    <label for="">
-        <h2>Pick your favorite Item</h2>
-    </label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="freshness">
+            <mat-radio-button class="example-radio-button" *ngFor="let fresh of freshNessList" [value]="fresh">{{fresh}}
+            </mat-radio-button>
+        </mat-radio-group>
 
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-        <mat-radio-button class="example-radio-button" *ngFor="let season of freshNessList" [value]="season">
-            {{season}}
-        </mat-radio-button>
-    </mat-radio-group>
+        <!-- PRICE  -->
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Price</mat-label>
+            <input matInput formControlName="price" placeholder="Product Price">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
 
-    <!-- PRICE  -->
-    <mat-form-field appearance="outline">
-        <mat-label>Enter Price</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
+        <!-- COMMENT HERE  -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Leave a comment</mat-label>
+            <textarea formControlName="comment" matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
 
-    <!-- COMMENT HERE  -->
-    <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Leave a comment</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-    </mat-form-field>
-
-    <!--  -->
-    <!--  -->
+        <!--  -->
+        <!--  -->
+    </form>
 
 </div>
 
 <div mat-dialog-action [align]="'center'">
     <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    <button mat-raised-button color="primary" style="margin-left: 20px;">Save</button>
+    <button mat-raised-button color="primary" style="margin-left: 20px;" (click)="addProduct()">Save</button>
 </div>
