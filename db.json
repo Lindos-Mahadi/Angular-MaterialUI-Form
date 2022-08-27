@@ -1,0 +1,23 @@
+{
+  "productList": [
+    {
+      "productName": "Mobile",
+      "category": "one",
+      "date": "2022-08-18T18:00:00.000Z",
+      "freshness": "Brand New",
+      "price": "20000",
+      "comment": "Well",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
