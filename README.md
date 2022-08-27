@@ -2,6 +2,9 @@
 // 1) installed scss
     #SCSS   [ https://sass-lang.com/documentation/syntax#scss]
 
+// 2) installed matetial
+    # ng add @angular/material
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
 ## Development server
