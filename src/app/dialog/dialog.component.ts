@@ -27,11 +27,12 @@ export class DialogComponent implements OnInit {
       date: ['', Validators.required],
       freshness: ['', Validators.required],
       price: ['', Validators.required],
-      comment: ['', Validators.required]
+      comment: ['', Validators.required],
+      id: ['']
 
     });
 
-    // GET VALUE FIELD PRODUCT
+    // GET VALUE FIELD PRODUCT WHEN UPDATE
     if (this.editData) {
       this.saveButton = "Update";
       this.productForm.controls['productName'].setValue(this.editData.productName);
