@@ -30,6 +30,8 @@ export class DialogComponent implements OnInit {
       comment: ['', Validators.required]
 
     });
+
+    // GET VALUE FIELD PRODUCT
     if (this.editData) {
       this.saveButton = "Update";
       this.productForm.controls['productName'].setValue(this.editData.productName);
@@ -40,6 +42,8 @@ export class DialogComponent implements OnInit {
       this.productForm.controls['comment'].setValue(this.editData.comment);
     }
   }
+
+  // ADD PRODUCT
   addProduct() {
     if (!this.editData) {
       if (this.productForm.valid) {
@@ -56,6 +60,8 @@ export class DialogComponent implements OnInit {
       this.updateProduct()
     }
   }
+
+  // UPDATE PRODUCT
   updateProduct() {
     this.callApi.putProduct(this.productForm.value, this.editData.id).subscribe({
       next: (res) => {

@@ -19,24 +19,6 @@
       "id": 2
     },
     {
-      "productName": "Orange",
-      "category": "three",
-      "date": "2022-08-03T18:00:00.000Z",
-      "freshness": "Refurbished",
-      "price": "1500",
-      "comment": "Vary Bad",
-      "id": 3
-    },
-    {
-      "productName": "Mobile",
-      "category": "one",
-      "date": "2022-08-18T18:00:00.000Z",
-      "freshness": "Brand New",
-      "price": "20000",
-      "comment": "Vary Bad",
-      "id": 4
-    },
-    {
       "productName": "Mobile",
       "category": "one",
       "date": "2022-08-18T18:00:00.000Z",

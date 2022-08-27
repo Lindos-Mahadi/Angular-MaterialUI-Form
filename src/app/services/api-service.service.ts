@@ -23,4 +23,8 @@ export class ApiServiceService {
     return this.http.put<any>("http://localhost:3000/productList/" + id, data);
   }
 
+  //  DELETE DATA ACTION METHOD
+  deleteProduct(id: number) {
+    return this.http.delete<any>("http://localhost:3000/productList/" + id);
+  }
 }

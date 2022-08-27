@@ -40,6 +40,20 @@ export class AppComponent implements OnInit {
       })
   }
 
+  // DELETE DATA FROM DB.JSON
+  deleteProduct(id: number) {
+    this.getApi.deleteProduct(id)
+      .subscribe({
+        next: () => {
+          alert("Product Deleted Successfully");
+          this.getAllProducts();
+        },
+        error: () => {
+          alert("Error! While fetching the records");
+        }
+      })
+  }
+
   // GET ALL DATA
   getAllProducts() {
     this.getApi.getProduct().subscribe((result) => {
