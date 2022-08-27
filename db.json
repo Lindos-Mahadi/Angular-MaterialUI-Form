@@ -8,6 +8,24 @@
       "price": "20000",
       "comment": "Well",
       "id": 1
+    },
+    {
+      "productName": "Apple",
+      "category": "two",
+      "date": "2022-08-02T18:00:00.000Z",
+      "freshness": "Second Hand",
+      "price": "15000",
+      "comment": "Not New",
+      "id": 2
+    },
+    {
+      "productName": "Orange",
+      "category": "three",
+      "date": "2022-08-03T18:00:00.000Z",
+      "freshness": "Refurbished",
+      "price": "1500",
+      "comment": "Very bad",
+      "id": 3
     }
   ],
   "comments": [
